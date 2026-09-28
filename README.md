@@ -266,3 +266,5 @@ This is an **educational / college project**. Scheme data is based on publicly a
 11. IGNOAPS – Old age pension
 12. PM SVANidhi – Street vendor loans
 13. Stand-Up India – SC/ST & women entrepreneur loans
+#   Y o j a n a - M i t r a  
+ 
