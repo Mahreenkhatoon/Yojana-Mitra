@@ -1,272 +1,178 @@
-# 🏛️ Smart Government Schemes – Eligibility & Benefit Tracker
+# 🇮🇳 Yojana-Mitra
 
-A full-stack MERN web application that helps Indian citizens discover government schemes they may be eligible for, with personalised eligibility analysis and official application links.
+### Smart Government Scheme Eligibility & Benefit Tracker
 
----
+Yojana-Mitra is a web-based project that helps users discover government schemes based on their basic information such as age, income, gender, state, and occupation.
 
-## 🖥️ Tech Stack
-
-| Layer     | Technology                              |
-|-----------|-----------------------------------------|
-| Frontend  | React 18, React Router 6, Axios, CSS3   |
-| Backend   | Node.js, Express.js                     |
-| Database  | MongoDB / MongoDB Atlas                 |
-| Auth      | JWT (JSON Web Tokens), bcryptjs         |
-| Security  | Helmet, CORS, express-rate-limit        |
+The main purpose of this project is to make government scheme information easier to find and understand.
 
 ---
 
-## 📁 Project Structure
+## 🎯 Project Objective
 
-```
-smart gov website/
-├── backend/
-│   ├── config/         → MongoDB connection
-│   ├── controllers/    → Route handler logic
-│   ├── middleware/      → JWT auth + Eligibility Engine
-│   ├── models/          → Mongoose models (User, Scheme, Category, SavedScheme)
-│   ├── routes/          → API route definitions
-│   ├── scripts/         → Seed data script
-│   ├── .env             → Environment variables (create from .env.example)
-│   ├── .env.example     → Environment variable template
-│   ├── package.json
-│   └── server.js        → Express app entry point
+The objective of Yojana-Mitra is to provide a simple platform where users can:
+
+* Enter their basic details
+* Check scheme eligibility
+* Find suitable government schemes
+* View scheme categories
+* Understand available benefits
+
+---
+
+## ✨ Features
+
+* 🏠 Simple and user-friendly home page
+* 🔍 Eligibility checking form
+* 👤 User information form
+* 📋 Government scheme cards
+* 🎓 Education schemes
+* 🌾 Farmer schemes
+* 🏠 Housing schemes
+* 📱 Responsive design
+* 🇮🇳 Simple government-style interface
+
+---
+
+## 🛠️ Technologies Used
+
+### Frontend
+
+* React.js
+* JavaScript
+* HTML5
+* CSS3
+
+### Development Tools
+
+* Visual Studio Code
+* Node.js
+* npm
+* Git
+* GitHub
+
+---
+
+## 📂 Project Structure
+
+```text
+Yojana-Mitra/
 │
-├── frontend/
-│   ├── public/
-│   └── src/
-│       ├── components/  → Reusable components (Navbar, Footer, SchemeCard…)
-│       ├── context/     → React Context (AuthContext)
-│       ├── pages/       → Page components
-│       ├── services/    → Axios API service layer
-│       ├── App.js       → Routes and app shell
-│       ├── index.js
-│       └── index.css    → Global styles and design tokens
+├── public/
 │
+├── src/
+│   ├── component/
+│   │   ├── Navbar.jsx
+│   │   ├── Home.jsx
+│   │   ├── EligibilityForm.jsx
+│   │   ├── SchemeCard.jsx
+│   │   └── Footer.jsx
+│   │
+│   ├── App.jsx
+│   ├── App.css
+│   └── main.jsx
+│
+├── .gitignore
+├── .env.example
+├── index.html
+├── package.json
+├── package-lock.json
 └── README.md
 ```
 
 ---
 
-## ⚙️ Prerequisites
+## 🚀 How to Run the Project
 
-- **Node.js** v18 or later – https://nodejs.org
-- **MongoDB** (either local install or a free [MongoDB Atlas](https://cloud.mongodb.com) cluster)
-- **npm** (comes with Node.js)
-
----
-
-## 🚀 Setup Instructions
-
-### Step 1 – Clone / Open the project
+### 1. Clone the repository
 
 ```bash
-cd "e:\college-project\smart gov website"
+git clone https://github.com/Mahreenkhatoon/Yojana-Mitra.git
 ```
 
-### Step 2 – Set up the Backend
+### 2. Open the project folder
 
 ```bash
-cd backend
+cd Yojana-Mitra
+```
+
+### 3. Install dependencies
+
+```bash
 npm install
 ```
 
-Copy the environment file:
-
-```bash
-copy .env.example .env
-```
-
-Open `.env` and set your MongoDB URI:
-
-```env
-# Local MongoDB
-MONGO_URI=mongodb://localhost:27017/smart_gov_schemes
-
-# OR MongoDB Atlas
-MONGO_URI=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/smart_gov_schemes
-```
-
-> **Tip:** The other default values (JWT_SECRET, ADMIN_EMAIL, etc.) work for local development. Change JWT_SECRET before deploying.
-
-### Step 3 – Seed the Database
-
-This creates 12 sample schemes, 10 categories, and one admin account:
-
-```bash
-npm run seed
-```
-
-You will see:
-```
-✅  Inserted 10 categories.
-✅  Inserted 12 schemes.
-✅  Admin account created: admin@smartgov.in
-────────────────────────────────────────────
-  Admin email    : admin@smartgov.in
-  Admin password : Admin@1234
-────────────────────────────────────────────
-```
-
-### Step 4 – Start the Backend
+### 4. Start the development server
 
 ```bash
 npm run dev
 ```
 
-The API will run at **http://localhost:5000**
+### 5. Open the URL shown in the terminal
 
-### Step 5 – Set up the Frontend
+Usually Vite runs the application at:
 
-Open a **new terminal window**:
-
-```bash
-cd "e:\college-project\smart gov website\frontend"
-npm install
-npm start
+```text
+http://localhost:5173
 ```
 
-The React app will open at **http://localhost:3000**
-
 ---
 
-## 🔑 Default Credentials
+## 🔐 Environment Variables
 
-| Role  | Email                | Password   |
-|-------|----------------------|------------|
-| Admin | admin@smartgov.in    | Admin@1234 |
+The actual `.env` file is not included in this repository for security reasons.
 
-Register a regular user account from http://localhost:3000/register
+If environment variables are required, create a `.env` file in the project root.
 
----
+Example:
 
-## 📖 Feature Walkthrough
-
-| Feature                | URL                  |
-|------------------------|----------------------|
-| Home page              | /                    |
-| Check eligibility      | /eligibility         |
-| View results           | /results             |
-| Explore schemes        | /schemes             |
-| Single scheme detail   | /schemes/:id         |
-| User dashboard         | /dashboard           |
-| Admin dashboard        | /admin               |
-| Login                  | /login               |
-| Register               | /register            |
-
----
-
-## 🔌 REST API Reference
-
-### Auth
-| Method | Endpoint                   | Auth | Description             |
-|--------|----------------------------|------|-------------------------|
-| POST   | /api/auth/register         | ❌   | Register new user       |
-| POST   | /api/auth/login            | ❌   | Login                   |
-| GET    | /api/auth/me               | ✅   | Get current user        |
-| PUT    | /api/auth/profile          | ✅   | Update profile          |
-| PUT    | /api/auth/change-password  | ✅   | Change password         |
-
-### Schemes
-| Method | Endpoint                   | Auth | Description             |
-|--------|----------------------------|------|-------------------------|
-| GET    | /api/schemes               | ❌   | Get all schemes (filter/search/sort/paginate) |
-| GET    | /api/schemes/featured      | ❌   | Get featured schemes    |
-| GET    | /api/schemes/saved         | ✅   | Get saved schemes       |
-| GET    | /api/schemes/:id           | ❌   | Get single scheme       |
-| POST   | /api/schemes/:id/save      | ✅   | Bookmark a scheme       |
-| DELETE | /api/schemes/:id/save      | ✅   | Remove bookmark         |
-
-### Eligibility
-| Method | Endpoint                   | Auth | Description             |
-|--------|----------------------------|------|-------------------------|
-| POST   | /api/eligibility/check     | ❌   | Check eligibility (guest or logged-in) |
-
-**Request body:**
-```json
-{
-  "profile": {
-    "age": 25,
-    "gender": "female",
-    "state": "Maharashtra",
-    "income": 150000,
-    "occupation": "student",
-    "category": "obc",
-    "location": "urban",
-    "disability": false,
-    "bankAccount": true,
-    "landOwnership": false
-  }
-}
+```env
+VITE_API_URL=your_api_url
 ```
 
-### Categories
-| Method | Endpoint                   | Auth  | Description            |
-|--------|----------------------------|-------|------------------------|
-| GET    | /api/categories            | ❌    | Get all categories     |
-| POST   | /api/categories            | Admin | Create category        |
-| PUT    | /api/categories/:id        | Admin | Update category        |
-| DELETE | /api/categories/:id        | Admin | Delete category        |
+---
 
-### Admin
-| Method | Endpoint                      | Auth  | Description            |
-|--------|-------------------------------|-------|------------------------|
-| GET    | /api/admin/stats              | Admin | Dashboard stats        |
-| GET    | /api/admin/users              | Admin | List users             |
-| PATCH  | /api/admin/users/:id/toggle   | Admin | Activate/deactivate    |
-| GET    | /api/admin/schemes            | Admin | List all schemes       |
-| POST   | /api/admin/schemes            | Admin | Create scheme          |
-| PUT    | /api/admin/schemes/:id        | Admin | Update scheme          |
-| DELETE | /api/admin/schemes/:id        | Admin | Delete scheme          |
-| PATCH  | /api/admin/schemes/:id/toggle | Admin | Toggle active status   |
+## 📸 Project Screens
+
+The website contains:
+
+1. Home page
+2. Eligibility form
+3. Government scheme cards
+4. Benefits information
+5. Footer section
 
 ---
 
-## 🧠 Eligibility Engine
+## 🔮 Future Scope
 
-The engine (`backend/middleware/eligibilityEngine.js`) evaluates each scheme's rule set against the user's profile. Supported rule operators:
+The project can be extended with:
 
-| Operator  | Meaning                              |
-|-----------|--------------------------------------|
-| `lte`     | field ≤ value                       |
-| `gte`     | field ≥ value                       |
-| `lt`      | field < value                       |
-| `gt`      | field > value                       |
-| `eq`      | field == value (case-insensitive)   |
-| `ne`      | field != value                      |
-| `in`      | field is in array                   |
-| `nin`     | field is NOT in array               |
-| `between` | value ≤ field ≤ valueMax           |
-| `boolean` | Boolean(field) === Boolean(value)   |
+* User registration and login
+* Database integration
+* More government schemes
+* Automatic eligibility matching
+* Government scheme API integration
+* Admin panel
+* Search and filter functionality
+* Personalized scheme recommendations
 
-Each rule returns `{ passed: true|false|null, message: "✅/❌ Human readable" }`.
+---
 
-Results are sorted: **Eligible → Partially Eligible → Not Eligible**.
+## 👩‍💻 Developed By
+
+**Mahreen Khatoon**
+
+MCA Student
+
+---
+
+## 📌 Project Type
+
+Academic / MCA Project
 
 ---
 
 ## ⚠️ Disclaimer
 
-This is an **educational / college project**. Scheme data is based on publicly available information and is for demonstration purposes only. This platform is **not affiliated** with any Indian government body. Always verify eligibility criteria on official government portals before applying.
-
----
-
-## 📜 Included Sample Schemes
-
-1. PM-KISAN – Farmer income support (₹6,000/year)
-2. PMAY-G – Rural housing assistance
-3. Ayushman Bharat PM-JAY – Health insurance (₹5 lakh/family)
-4. PM MUDRA Yojana – Micro-enterprise loans
-5. National Scholarship Portal – Education scholarships
-6. MGNREGA – Rural employment guarantee
-7. PMJJBY – Life insurance (₹2 lakh at ₹436/year)
-8. PMSBY – Accidental insurance (₹2 lakh at ₹20/year)
-9. PM Kaushal Vikas Yojana – Skill development
-10. Beti Bachao Beti Padhao – Girl child welfare
-11. IGNOAPS – Old age pension
-12. PM SVANidhi – Street vendor loans
-13. Stand-Up India – SC/ST & women entrepreneur loans
-#   Y o j a n a - M i t r a  
- #   Y o j a n a - M i t r a  
- #   Y o j a n a - M i t r a  
- 
+This is an academic project created for educational purposes. Users should verify scheme eligibility and current information through official government sources before applying.
